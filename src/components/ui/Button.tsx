@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary" | "ghost";
@@ -17,6 +17,8 @@ export function Button({
   size = "md",
   className = "",
   disabled = false,
+  type = "button",
+  ...props
 }: ButtonProps) {
   const baseStyles =
     "font-medium rounded-xl transition-all duration-200 cursor-pointer";
